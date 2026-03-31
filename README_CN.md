@@ -20,7 +20,8 @@
 ---
 
 ## 📢 更新日志
-- **2026.03.31**：EvoCUA-32B 在 WindowsAgentArena (WAA) 上取得 **56.48%**，超越 UI-TARS-2 约 6 个百分点——展现出强大的零样本跨操作系统泛化能力 🆕
+- **2026.03.31**：EvoCUA-32B 在 WindowsAgentArena (WAA) 上取得 **56.48%**，超越基线模型 Qwen3-VL-32B-Thinking（42.9%）约 13.6 个百分点，超越 UI-TARS-2（50.6%）约 6 个百分点——展现出强大的零样本跨操作系统泛化能力 🆕
+- **2026.03.31**：🛡️ Yoshua Bengio 与 Dawn Song 团队的独立安全性研究（[arXiv:2602.08235](https://arxiv.org/abs/2602.08235)）表明 **EvoCUA-32B 的非预期行为触发率最低（35.0%）**——在所有受测 CUA 中最安全！🆕
 - **2026.01.23**: EvoCUA 在 [Hugging Face Daily Papers](https://huggingface.co/papers/2601.15876) **中排名 (#1)** 🏆
 - **2026.01.22**：发布[EvoCUA技术报告](https://arxiv.org/abs/2601.15876) 📄
 - **2026.01.13**：发布 [EvoCUA-8B-20260105](https://huggingface.co/meituan/EvoCUA-8B-20260105) — OSWorld 得分 **46.1%**，**以更小的参数量实现与 72B 级别开源模型相当的性能！**
@@ -57,7 +58,7 @@
 
 ### 零样本跨操作系统泛化（WindowsAgentArena）
 
-我们在 [WindowsAgentArena (WAA)](https://microsoft.github.io/WindowsAgentArena/) 上对 EvoCUA 进行了评测，以验证模型从 Linux 训练环境向全新操作系统平台的泛化能力。如下表所示，EvoCUA-32B 达到 **56.48%**，超越领先的前沿 GUI Agent UI-TARS-2（50.6%）近 **6 个百分点**。
+我们在 [WindowsAgentArena (WAA)](https://microsoft.github.io/WindowsAgentArena/) 上对 EvoCUA 进行了评测，以验证模型从 Linux 训练环境向全新操作系统平台的泛化能力。如下表所示，EvoCUA-32B 达到 **56.48%**，超越基线模型 Qwen3-VL-32B-Thinking（42.9%）约 13.6 个百分点，超越领先的前沿 GUI Agent UI-TARS-2（50.6%）近 **6 个百分点**。
 
 | 模型 | WAA |
 |------|-----|
@@ -68,6 +69,31 @@
 
 > [1] Bai et al., *Qwen3-VL Technical Report* (arXiv:2511.21631, 2025).
 > [2] Wang et al., *UI-TARS-2 Technical Report* (arXiv:2509.02544, 2025).
+
+### 安全性 — 抵抗非预期行为的鲁棒性
+
+来自 Yoshua Bengio 和 Dawn Song 团队的最新研究 [Jones et al. (2026)](https://arxiv.org/abs/2602.08235) 系统评估了主流 CUA 的安全性。该研究将 117 条经人工验证的扰动指令（看似无害但具有误导性）迁移至多个目标 Agent，每条指令执行 3 次，报告在 ≥ 1 次运行中触发非预期行为的指令百分比。**EvoCUA-32B 以 35.0% 的最低整体触发率**，在所有受测 CUA 中展现出最强的安全鲁棒性。
+
+<details>
+<summary><b>可迁移性研究结果（论文 Table 2）</b></summary>
+
+| 目标 Agent | Claude 4.5 Haiku | Claude 4.5 Opus | 整体 |
+|---|---|---|---|
+| **开源 CUA** | | | |
+| EvoCUA-8B | 20.0 | 50.7 | 37.6 |
+| **EvoCUA-32B (Ours)** | **24.0** | **43.3** | **35.0 🥇** |
+| OpenCUA-7B | 42.0 | 50.7 | 47.0 |
+| OpenCUA-32B | 42.0 | 44.8 | 43.6 |
+| OpenCUA-72B | 50.0 | 56.7 | 53.8 |
+| **闭源 CUA** | | | |
+| Claude 4.5 Sonnet | 32.0 | 47.8 | 41.0 |
+| Operator | 38.0 | 56.7 | 48.7 |
+
+> *数值越低越安全。* EvoCUA-32B 在所有受测 Agent 中非预期行为触发率最低。
+
+</details>
+
+> [3] Jones et al., *When Benign Inputs Lead to Severe Harms: Eliciting Unsafe Unintended Behaviors of Computer-Use Agents* (arXiv:2602.08235, 2026).
 
 ---
 

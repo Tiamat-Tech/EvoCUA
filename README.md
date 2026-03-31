@@ -20,7 +20,8 @@
 ---
 
 ## 📢 Updates
-- **2026.03.31**: EvoCUA-32B achieves **56.48%** on WindowsAgentArena (WAA), surpassing UI-TARS-2 by ~6 points — demonstrating strong zero-shot cross-OS generalization 🆕
+- **2026.03.31**: EvoCUA-32B achieves **56.48%** on WindowsAgentArena (WAA), surpassing the base model Qwen3-VL-32B-Thinking (42.9%) by ~13.6 points and UI-TARS-2 (50.6%) by ~6 points — demonstrating strong zero-shot cross-OS generalization 🆕
+- **2026.03.31**: 🛡️ Independent safety study by Yoshua Bengio & Dawn Song's teams ([arXiv:2602.08235](https://arxiv.org/abs/2602.08235)) shows **EvoCUA-32B has the lowest unintended-behavior rate (35.0%)** among all tested CUAs — the safest agent! 🆕
 - **2026.01.23**: EvoCUA ranked **#1** on [Hugging Face Daily Papers](https://huggingface.co/papers/2601.15876) 🏆
 - **2026.01.22**: Released [EvoCUA Technical Report](./tech_report.pdf) 📄
 - **2026.01.13**: Released [EvoCUA-8B-20260105](https://huggingface.co/meituan/EvoCUA-8B-20260105) — achieves **46.1%** on OSWorld, **competitive with 72B-level models using fewer parameters!**
@@ -57,7 +58,7 @@
 
 ### Zero-shot Cross-OS Control (WindowsAgentArena)
 
-We evaluated EvoCUA on [WindowsAgentArena (WAA)](https://microsoft.github.io/WindowsAgentArena/) to test generalization from the Linux-based training environment to a wholly different OS platform. As shown below, EvoCUA-32B reaches **56.48%**, surpassing the leading frontier GUI agent UI-TARS-2 (50.6%) by nearly **6 points**.
+We evaluated EvoCUA on [WindowsAgentArena (WAA)](https://microsoft.github.io/WindowsAgentArena/) to test generalization from the Linux-based training environment to a wholly different OS platform. As shown below, EvoCUA-32B reaches **56.48%**, surpassing the base model Qwen3-VL-32B-Thinking (42.9%) by ~13.6 points and the leading frontier GUI agent UI-TARS-2 (50.6%) by nearly **6 points**.
 
 | Model | WAA |
 |-------|-----|
@@ -68,6 +69,31 @@ We evaluated EvoCUA on [WindowsAgentArena (WAA)](https://microsoft.github.io/Win
 
 > [1] Bai et al., *Qwen3-VL Technical Report* (arXiv:2511.21631, 2025).
 > [2] Wang et al., *UI-TARS-2 Technical Report* (arXiv:2509.02544, 2025).
+
+### Safety — Robustness to Unintended Behaviors
+
+A recent study by [Jones et al. (2026)](https://arxiv.org/abs/2602.08235) from Yoshua Bengio and Dawn Song's teams systematically evaluated the safety of leading CUAs. They transferred 117 human-verified perturbations (benign but tricky instructions) to multiple target agents, executing each instruction 3 times and reporting the percentage that elicits unintended behavior in ≥ 1 run. **EvoCUA-32B achieves the lowest overall rate (35.0%)**, demonstrating the strongest robustness among all tested CUAs.
+
+<details>
+<summary><b>Transferability Study Results (Table 2 from the paper)</b></summary>
+
+| Target Agent | Claude 4.5 Haiku | Claude 4.5 Opus | Overall |
+|---|---|---|---|
+| **Open-Source CUAs** | | | |
+| EvoCUA-8B | 20.0 | 50.7 | 37.6 |
+| **EvoCUA-32B (Ours)** | **24.0** | **43.3** | **35.0 🥇** |
+| OpenCUA-7B | 42.0 | 50.7 | 47.0 |
+| OpenCUA-32B | 42.0 | 44.8 | 43.6 |
+| OpenCUA-72B | 50.0 | 56.7 | 53.8 |
+| **Closed-Source CUAs** | | | |
+| Claude 4.5 Sonnet | 32.0 | 47.8 | 41.0 |
+| Operator | 38.0 | 56.7 | 48.7 |
+
+> *Lower is safer.* EvoCUA-32B has the lowest overall unintended-behavior rate among all tested agents.
+
+</details>
+
+> [3] Jones et al., *When Benign Inputs Lead to Severe Harms: Eliciting Unsafe Unintended Behaviors of Computer-Use Agents* (arXiv:2602.08235, 2026).
 
 ---
 
