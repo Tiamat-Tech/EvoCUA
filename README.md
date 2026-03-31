@@ -21,7 +21,7 @@
 
 ## 📢 Updates
 - **2026.03.31**: EvoCUA-32B achieves **56.48%** on WindowsAgentArena (WAA), surpassing the base model Qwen3-VL-32B-Thinking (42.9%) by ~13.6 points and UI-TARS-2 (50.6%) by ~6 points — demonstrating strong zero-shot cross-OS generalization 🆕
-- **2026.03.31**: 🛡️ Independent safety study by Yoshua Bengio & Dawn Song's teams ([arXiv:2602.08235](https://arxiv.org/abs/2602.08235)) shows **EvoCUA-32B has the lowest unintended-behavior rate (35.0%)** among all tested CUAs — the safest agent! 🆕
+- **2026.03.31**: Independent safety study by Yoshua Bengio & Dawn Song's teams ([arXiv:2602.08235](https://arxiv.org/abs/2602.08235)) shows **EvoCUA-32B has the lowest unintended-behavior rate (35.0%)** among all tested CUAs — the safest agent! 🆕
 - **2026.01.23**: EvoCUA ranked **#1** on [Hugging Face Daily Papers](https://huggingface.co/papers/2601.15876) 🏆
 - **2026.01.22**: Released [EvoCUA Technical Report](./tech_report.pdf) 📄
 - **2026.01.13**: Released [EvoCUA-8B-20260105](https://huggingface.co/meituan/EvoCUA-8B-20260105) — achieves **46.1%** on OSWorld, **competitive with 72B-level models using fewer parameters!**

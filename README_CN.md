@@ -21,7 +21,7 @@
 
 ## 📢 更新日志
 - **2026.03.31**：EvoCUA-32B 在 WindowsAgentArena (WAA) 上取得 **56.48%**，超越基线模型 Qwen3-VL-32B-Thinking（42.9%）约 13.6 个百分点，超越 UI-TARS-2（50.6%）约 6 个百分点——展现出强大的零样本跨操作系统泛化能力 🆕
-- **2026.03.31**：🛡️ Yoshua Bengio 与 Dawn Song 团队的独立安全性研究（[arXiv:2602.08235](https://arxiv.org/abs/2602.08235)）表明 **EvoCUA-32B 的非预期行为触发率最低（35.0%）**——在所有受测 CUA 中最安全！🆕
+- **2026.03.31**：Yoshua Bengio 与 Dawn Song 团队的独立安全性研究（[arXiv:2602.08235](https://arxiv.org/abs/2602.08235)）表明 **EvoCUA-32B 的非预期行为触发率最低（35.0%）**——在所有受测 CUA 中最安全！🆕
 - **2026.01.23**: EvoCUA 在 [Hugging Face Daily Papers](https://huggingface.co/papers/2601.15876) **中排名 (#1)** 🏆
 - **2026.01.22**：发布[EvoCUA技术报告](https://arxiv.org/abs/2601.15876) 📄
 - **2026.01.13**：发布 [EvoCUA-8B-20260105](https://huggingface.co/meituan/EvoCUA-8B-20260105) — OSWorld 得分 **46.1%**，**以更小的参数量实现与 72B 级别开源模型相当的性能！**
